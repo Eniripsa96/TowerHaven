@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFEditor.WaveSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Wave Selection" Height="300" Width="300"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize">
+    <Grid Background="Black">
+        <Button Background="Blue" BorderBrush="White" Content="Edit Wave" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" Margin="10,10,0,0" Name="editButton" VerticalAlignment="Top" Click="editButton_Click" HorizontalAlignment="Left" Width="80" />
+        <Button Background="Blue" BorderBrush="White" Content="New Wave" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" Margin="96,10,0,0" Name="newButton" VerticalAlignment="Top" Click="newButton_Click" HorizontalAlignment="Left" Width="75" />
+        <ScrollViewer Height="Auto" HorizontalAlignment="Stretch" Margin="0,39,0,0" Name="scrollViewer1" VerticalAlignment="Stretch" Width="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+            <Grid Name="grid1" />
+        </ScrollViewer>
+        <Button Background="Blue" BorderBrush="White" Content="Delete Wave" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="177,10,0,0" Name="button1" VerticalAlignment="Top" Width="89" Click="deleteButton_Click" />
+    </Grid>
+</Window>

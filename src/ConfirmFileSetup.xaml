@@ -1,0 +1,11 @@
+﻿<Window x:Class="TowerHaven.ConfirmFileSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ConfirmFileSetup" Height="196" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="Black">
+        <Button Background="Blue" BorderBrush="White" Content="Yes" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="12,117,0,0" Name="yesButton" VerticalAlignment="Top" Width="135" IsDefault="False" Click="yesButton_Click" />
+        <Button Background="Blue" BorderBrush="White" Content="No" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="153,117,0,0" Name="noButton" VerticalAlignment="Top" Width="113" Click="noButton_Click" />
+        <TextBlock Height="99" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="Tower Haven can associate its map files with the program so that you can just double click on a map to play it. Would you like to set this up now? (Requires admin privileges)" VerticalAlignment="Top" Width="254" FontFamily="Times New Roman" FontSize="16" Foreground="White" TextWrapping="Wrap" />
+    </Grid>
+</Window>

@@ -1,0 +1,43 @@
+﻿<Window x:Class="TowerHaven.Upgrade"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Upgrade" Height="278" Width="438"
+        WindowStartupLocation="CenterOwner">
+    <Grid Background="Black">
+        <Grid Background="White" HorizontalAlignment="Left" Margin="12,46,0,58" Name="leftWhiteGrid" VerticalAlignment="Stretch" Width="194">
+            <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="6" Name="grid2" VerticalAlignment="Stretch" Width="Auto" Background="Black">
+                <Label Content="Damage" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,6,102,0" Name="label2" VerticalAlignment="Top" />
+                <Label Content="Range" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,24,102,0" Name="label3" VerticalAlignment="Top" />
+                <Label Content="Status" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,66,102,0" Name="label5" VerticalAlignment="Top" />
+                <Label Content="Attack Delay" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,43,80,0" Name="label6" VerticalAlignment="Top" />
+                <Label Content="AOE" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,86,102,0" Name="label7" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="129,6,6,0" Name="childDamageLabel" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="129,24,6,0" Name="childRangeLabel" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="129,43,6,0" Name="childDelayLabel" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="99,66,6,0" Name="childStatusLabel" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="99,86,6,0" Name="childAoeLabel" VerticalAlignment="Top" />
+            </Grid>
+        </Grid>
+        <Label Content="Current Tower" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="12,12,266,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Upgraded Tower" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="0,12,12,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="121" />
+        <Grid Background="White" HorizontalAlignment="Left" Margin="212,46,0,58" Name="grid1" VerticalAlignment="Stretch" Width="194">
+            <Grid Background="Black" HorizontalAlignment="Stretch" Margin="6" Name="grid3" VerticalAlignment="Stretch">
+                <Label Content="Damage" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,6,102,0" Name="label8" VerticalAlignment="Top" />
+                <Label Content="Range" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,24,102,0" Name="label9" VerticalAlignment="Top" />
+                <Label Content="Status" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,66,102,0" Name="label10" VerticalAlignment="Top" />
+                <Label Content="Attack Delay" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,43,80,0" Name="label11" VerticalAlignment="Top" />
+                <Label Content="AOE" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="6,86,102,0" Name="label12" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="129,6,6,0" Name="parentDamageLabel" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Margin="129,24,6,71" Name="parentRangeLabel" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="129,43,6,0" Name="parentDelayLabel" VerticalAlignment="Top" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Margin="96,66,6,29" Name="parentStatusLabel" />
+                <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="96,86,6,0" Name="parentAoeLabel" VerticalAlignment="Top" />
+            </Grid>
+        </Grid>
+        <Button Background="Blue" BorderBrush="White" Content="Upgrade" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="212,204,0,0" Name="upgradeButton" VerticalAlignment="Top" Width="96" Click="upgradeButton_Click" />
+        <Button Background="Blue" BorderBrush="White" Content="Cancel" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="314,204,0,0" Name="cancelButton" VerticalAlignment="Top" Width="86" Click="cancelButton_Click" />
+        <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="12,201,357,0" Name="label13" VerticalAlignment="Top" />
+        <Label Content="Cost" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="73,201,296,0" Name="upgradeCostLabel" VerticalAlignment="Top" />
+        <ComboBox Background="White" BorderBrush="White" FontFamily="Times New Roman" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="147,17,0,0" Name="upgradeComboBox" VerticalAlignment="Top" Width="116" SelectionChanged="enemyComboBox_SelectionChanged" IsReadOnly="True" />
+    </Grid>
+</Window>

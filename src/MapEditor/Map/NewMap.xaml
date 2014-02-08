@@ -1,0 +1,18 @@
+﻿<Window x:Class="WPFEditor.NewMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New Map" Height="219" Width="300"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Height="190" Background="Black">
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="146,37,0,0" Name="widthBox" VerticalAlignment="Top" Width="120" Text="" FontFamily="Times New Roman" FontSize="14" />
+        <Label Content="Map Width" Height="28" HorizontalAlignment="Left" Margin="50,32,0,0" Name="label1" VerticalAlignment="Top" Width="128" FontStyle="Italic" FontWeight="Bold" FontSize="16" FontFamily="Times New Roman" Foreground="White" />
+        <Label Content="Map Height" FontSize="16" FontStyle="Italic" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="42,61,0,0" Name="label2" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" Foreground="White" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="146,66,0,0" Name="heightBox" Text="" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" />
+        <Label Content="Background Tile" FontSize="16" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Left" Margin="12,96,0,66" Name="label3" Width="128" FontFamily="Times New Roman" Foreground="White" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="146,96,0,0" Name="tileComboBox" VerticalAlignment="Top" Width="120" FontSize="14" FontFamily="Times New Roman" BorderBrush="White" Background="White" Focusable="True" IsReadOnly="True" />
+        <Button Content="Confirm" Height="23" HorizontalAlignment="Right" Margin="0,145,22,0" Name="confirmButton" VerticalAlignment="Top" Width="120" BorderBrush="White" Background="Blue" Foreground="White" FontSize="14" FontFamily="Times New Roman" FontWeight="Bold" Click="confirmButton_Click" Focusable="False" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="12,145,0,0" Name="cancelButton" VerticalAlignment="Top" Width="118" BorderBrush="White" Background="Blue" Foreground="White" FontSize="14" FontFamily="Times New Roman" FontWeight="Bold" Click="cancelButton_Click" Focusable="False" />
+        <TextBox FontFamily="Times New Roman" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="146,8,0,0" Name="nameBox" Text="" VerticalAlignment="Top" Width="120" />
+        <Label Content="Map Name" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" HorizontalAlignment="Left" Margin="50,4,0,0" Name="label4" VerticalAlignment="Top" Width="128" />
+    </Grid>
+</Window>

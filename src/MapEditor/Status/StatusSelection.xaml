@@ -1,0 +1,13 @@
+﻿<Window x:Class="WPFEditor.StatusSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Status Selection" Height="300" Width="300"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Background="Black">
+        <Button Background="Blue" BorderBrush="White" Content="Edit Status" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="editButton" VerticalAlignment="Top" Width="117" Click="editButton_Click" />
+        <Button Background="Blue" BorderBrush="White" Content="New Status" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="135,12,0,0" Name="newButton" VerticalAlignment="Top" Width="131" Click="newButton_Click" />
+        <ScrollViewer Height="220" HorizontalAlignment="Left" Margin="0,41,0,0" Name="scrollViewer1" VerticalAlignment="Top" Width="278" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+            <Grid Name="grid1" Margin="0,0,0,0" />
+        </ScrollViewer>
+    </Grid>
+</Window>

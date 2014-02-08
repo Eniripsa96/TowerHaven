@@ -1,0 +1,262 @@
+﻿
+<Window x:Class="WPFEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tower Haven Editor" Height="369" Width="264" HorizontalAlignment="Left" VerticalAlignment="Top"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <ControlTemplate x:Key="ScrollViewerControlTemplate" 
+                         TargetType="{x:Type ScrollViewer}">
+            <Grid x:Name="Grid" 
+                  Background="{TemplateBinding Background}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Rectangle x:Name="Corner" 
+                           Grid.Column="1" 
+                           Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" 
+                           Grid.Row="1"/>
+                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                        CanContentScroll="{TemplateBinding CanContentScroll}"
+                                        CanHorizontallyScroll="False"
+                                        CanVerticallyScroll="False"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}"
+                                        Grid.RowSpan="2"
+                                        Margin="{TemplateBinding Padding}"
+                                        Grid.ColumnSpan="2"/>
+                <ScrollBar x:Name="PART_VerticalScrollBar"
+                           AutomationProperties.AutomationId="VerticalScrollBar"
+                           Cursor="Arrow"
+                           Grid.Column="1"
+                           Maximum="{TemplateBinding ScrollableHeight}"
+                           Minimum="0"
+                           Grid.Row="0"
+                           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                           Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                           ViewportSize="{TemplateBinding ViewportHeight}"
+                           Width="8"/>
+                <ScrollBar x:Name="PART_HorizontalScrollBar"
+                           AutomationProperties.AutomationId="HorizontalScrollBar"
+                           Cursor="Arrow"
+                           Grid.Column="0"
+                           Maximum="{TemplateBinding ScrollableWidth}"
+                           Minimum="0"
+                           Orientation="Horizontal"
+                           Grid.Row="1"
+                           Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                           Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                           ViewportSize="{TemplateBinding ViewportHeight}"
+                           Height="8"/>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="ScrollBarPageButton" 
+               TargetType="{x:Type RepeatButton}">
+            <Setter Property="OverridesDefaultStyle" 
+                    Value="true"/>
+            <Setter Property="Background" 
+                    Value="Transparent"/>
+            <Setter Property="Focusable" 
+                    Value="false"/>
+            <Setter Property="IsTabStop"
+                    Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Rectangle Fill="{TemplateBinding Background}" 
+                                   Height="{TemplateBinding Height}" 
+                                   Width="{TemplateBinding Width}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HorizontalThumb" 
+               TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4" />
+                                <ColumnDefinition Width="4" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="4" />
+                                <ColumnDefinition Width="4" />
+                            </Grid.ColumnDefinitions>
+                            <Ellipse Grid.Column="0" 
+                                     Grid.ColumnSpan="2" 
+                                     Fill="#FFF4F4F5" />
+                            <Rectangle Grid.Column="1" 
+                                       Grid.ColumnSpan="3" 
+                                       Fill="#FFF4F4F5" />
+                            <Ellipse Grid.Column="3" 
+                                     Grid.ColumnSpan="2" 
+                                     Fill="#FFF4F4F5" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="VerticalThumb" 
+               TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5" />
+                                <RowDefinition Height="5" />
+                                <RowDefinition />
+                                <RowDefinition Height="5" />
+                                <RowDefinition Height="5" />
+                            </Grid.RowDefinitions>
+                            <Rectangle Grid.Row="1" 
+                                       Grid.RowSpan="3" 
+                                       Fill="White" />
+                            <Ellipse Grid.Row="0" 
+                                     Grid.RowSpan="2" 
+                                     Fill="White" />
+                            <Ellipse Grid.Row="3" 
+                                     Grid.RowSpan="2" 
+                                     Fill="White" />
+                            <Rectangle Grid.Row="1" 
+                                       Grid.RowSpan="3" 
+                                       Fill="Gray" Width="1" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsPressAndHoldEnabled" 
+                    Value="false"/>
+            <Setter Property="Stylus.IsFlicksEnabled" 
+                    Value="false"/>
+            <Setter Property="Foreground" 
+                    Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Width" 
+                    Value="10"/>
+            <Setter Property="MinWidth" 
+                    Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid x:Name="Bg" 
+                              SnapsToDevicePixels="true">
+                            <Grid.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" 
+                                                     EndPoint="1,0.5">
+                                    <GradientStop Color="#00000000" 
+                                                  Offset="0.4"/>
+                                    <GradientStop Color="White"
+                                                  Offset="0.5"/>
+                                    <GradientStop Color="#00000000" 
+                                                  Offset="1"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.00001*"/>
+                            </Grid.RowDefinitions>
+                            <Track x:Name="PART_Track" 
+                                   IsDirectionReversed="true" 
+                                   IsEnabled="{TemplateBinding IsMouseOver}" 
+                                   Grid.Row="1">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" 
+                                                  Style="{StaticResource ScrollBarPageButton}"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" 
+                                                  Style="{StaticResource ScrollBarPageButton}"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Style="{DynamicResource VerticalThumb}" 
+                                           Width="10"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Orientation" 
+                         Value="Horizontal">
+                    <Setter Property="Width" 
+                            Value="Auto"/>
+                    <Setter Property="MinWidth" 
+                            Value="0"/>
+                    <Setter Property="Height" 
+                            Value="10"/>
+                    <Setter Property="MinHeight" 
+                            Value="10"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                <Grid x:Name="Bg" 
+                                      SnapsToDevicePixels="true" 
+                                      Background="#7FA7A7A7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.00001*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Track x:Name="PART_Track" 
+                                           Grid.Column="1" 
+                                           IsEnabled="{TemplateBinding IsMouseOver}">
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" 
+                                                          Style="{StaticResource ScrollBarPageButton}"/>
+                                        </Track.DecreaseRepeatButton>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" 
+                                                          Style="{StaticResource ScrollBarPageButton}"/>
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.Thumb>
+                                            <Thumb Style="{DynamicResource HorizontalThumb}" 
+                                                   Height="8"/>
+                                        </Track.Thumb>
+                                    </Track>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Name="ContentRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black">
+        <Menu Height="23" HorizontalAlignment="Stretch" Name="menu1" VerticalAlignment="Top" Width="Auto" Margin="-1,0,0,0" Background="Black" Foreground="White" FontSize="14" FontFamily="Times New Roman" FontWeight="Bold" BorderBrush="White">
+            <MenuItem Header="File" Background="Black" Padding="6,2,5,3">
+                <MenuItem Background="Black" Header="New" Click="newButton_Click">
+                </MenuItem>
+                <MenuItem Header="New From Image" Click="newFromImageButton_Click" Background="Black" />
+                <Separator Background="Black" Height="0" />
+                <MenuItem Header="Save" Background="Black" Click="saveButton_Click" />
+                <MenuItem Background="Black" Header="Load" Click="loadButton_Click" />
+                <Separator Background="Black" Height="0" />
+                <MenuItem Background="Black" Header="Open Foler" Click="folderButton_Click" />
+            </MenuItem>
+            <MenuItem Header="Edit" Padding="5,2,5,3">
+                <MenuItem Background="Black" Header="Properties" Click="propertyButton_Click" />
+                <MenuItem Background="Black" Header="Tiles" Click="tileButton_Click" />
+                <MenuItem Background="Black" Header="Towers" Click="towerButton_Click" />
+                <MenuItem Background="Black" Header="Enemies" Click="enemyButton_Click" />
+                <MenuItem Background="Black" Header="Statuses" Click="statusButton_Click" />
+                <MenuItem Background="Black" Header="Waves" Click="waveButton_Click" />
+            </MenuItem>
+            <MenuItem Header="Help" Padding="5,2,5,3">
+                <MenuItem Background="Black" Header="Help" Click="MenuItem_Click" />
+            </MenuItem>
+        </Menu>
+        <Label Content="Palette" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="0,51,95,0" Name="label1" VerticalAlignment="Top" />
+        <ScrollViewer Height="Auto" HorizontalAlignment="Left" Margin="6,81,0,6" Name="scrollView1" VerticalAlignment="Stretch" Width="101" VerticalScrollBarVisibility="Visible" Template="{DynamicResource ScrollViewerControlTemplate}">
+            <Grid Height="Auto" HorizontalAlignment="Stretch" Margin="0" Name="paletteGrid" VerticalAlignment="Stretch" Width="Auto" />
+        </ScrollViewer>
+        <Label Content="Tile" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="-1,25,96,0" Name="label2" VerticalAlignment="Top" />
+        <Canvas Height="16" HorizontalAlignment="Left" Margin="39,32,0,0" Name="selectedTileCanvas" VerticalAlignment="Top" Width="16" />
+        <Separator Height="5" HorizontalAlignment="Left" Margin="0,18,0,0" Name="separator1" VerticalAlignment="Top" Width="126" />
+    </Grid>
+</Window>

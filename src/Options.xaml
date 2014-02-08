@@ -1,0 +1,19 @@
+﻿<Window x:Class="TowerHaven.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Options" Height="152" Width="300"
+        WindowStartupLocation="CenterOwner">
+    <Grid Background="Black">
+        <Label Content="Show Grid Lines" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="10,10,130,0" Name="label4" VerticalAlignment="Top" />
+        <ComboBox Background="White" BorderBrush="White" FontFamily="Times New Roman" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="145,15,0,0" Name="gridLineComboBox" VerticalAlignment="Top" Width="116" IsReadOnly="True">
+            <ComboBoxItem Content="True" />
+            <ComboBoxItem Content="False" />
+        </ComboBox>
+        <Button Background="Blue" BorderBrush="White" Content="Done" Focusable="False" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="145,73,0,0" Name="doneButton" VerticalAlignment="Top" Width="116" Click="doneButton_Click" />
+        <Label Content="Towers Beep" FontFamily="Times New Roman" FontSize="16" FontStyle="Italic" FontWeight="Bold" Foreground="White" Height="28" Margin="10,39,130,0" Name="label1" VerticalAlignment="Top" />
+        <ComboBox Background="White" BorderBrush="White" FontFamily="Times New Roman" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="145,44,0,0" Name="towerBeepComboBox" VerticalAlignment="Top" Width="116" IsReadOnly="True">
+            <ComboBoxItem Content="True" />
+            <ComboBoxItem Content="False" />
+        </ComboBox>
+    </Grid>
+</Window>
